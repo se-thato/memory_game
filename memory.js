@@ -46,8 +46,13 @@ function checkForMatch() {
     const isMatch = firstCard.dataset.letter === secondCard.dataset.letter;
 
     if (isMatch) {
-        disableCards();
+        // Mark cards as matched and reset the board
+        firstCard.classList.add('matched');
+        secondCard.classList.add('matched');
+        resetBoard();
+        checkGameOver();
     } else {
+        // Unflip the cards after a short delay
         unflipCards();
     }
 }
